@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOKO — кофейня</title>
+
+    <style>
+        
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #e1e9df;
+            color: #252b25;
+        }
+
+        header {
+            background-color: #f8f2e5;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            color: #55745d;
+            margin: 0;
+        }
+
+        nav {
+            margin-top: 15px;
+        }
+
+        nav a {
+            color: #252b25;
+            text-decoration: none;
+            margin: 8px;
+        }
+
+        nav a:hover {
+            color: #e9783e;
+        }
+
+        section {
+            background-color: #f8f2e5;
+            margin: 20px auto;
+            padding: 25px;
+            max-width: 1000px;
+            border-radius: 15px;
+        }
+
+        h2 {
+            color: #55745d;
+        }
+
+        .main {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .main img {
+            width: 50%;
+            border-radius: 15px;
+        }
+
+        .products {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .product {
+            background-color: white;
+            padding: 15px;
+            border-radius: 12px;
+            width: 250px;
+        }
+
+        .product img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        button {
+            background-color: #e9783e;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        input, select {
+            padding: 10px;
+            margin: 5px 0;
+            width: 90%;
+            max-width: 350px;
+        }
+
+        footer {
+            background-color: #a9bda9;
+            padding: 20px;
+            text-align: center;
+        }
+
+        
+        @media (max-width: 600px) {
+            .main {
+                display: block;
+            }
+
+            .main img {
+                width: 100%;
+                margin-top: 15px;
+            }
+
+            .product {
+                width: 100%;
+            }
+
+            nav a {
+                display: inline-block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- шапка сайта -->
+    <header>
+        <h1>MOKO </h1>
+        <p>Кофейня с вкусным кофе и десертами</p>
+
+        <nav>
+            <a href="#home">Главная</a>
+            <a href="#menu">Меню</a>
+            <a href="#desserts">Десерты</a>
+            <a href="#beans">Зёрна</a>
+            <a href="#about">О нас</a>
+            <a href="#delivery">Доставка</a>
+            <a href="#booking">Бронирование</a>
+            <a href="#offers">Акции</a>
+            <a href="#reviews">Отзывы</a>
+            <a href="#contacts">Контакты</a>
+        </nav>
+    </header>
+
+    <!-- 1. главная -->
+    <section id="home">
+        <div class="main">
+            <div>
+                <h2>Кофе, который поднимает настроение</h2>
+                <p>У нас можно выпить ароматный кофе, попробовать свежую выпечку и отдохнуть.</p>
+                <a href="#menu"><button>Посмотреть меню</button></a>
+            </div>
+            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80"
+                 alt="Кофе на столе">
+        </div>
+    </section>
+
+    <!-- 2. меню -->
+    <section id="menu">
+        <h2>Наши напитки</h2>
+        <div class="products">
+            <div class="product">
+                <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=500&q=80" alt="Латте">
+                <h3>Латте</h3>
+                <p>Нежный кофе с молоком.</p>
+                <b>250 сом</b>
+            </div>
+            <div class="product">
+                <img src="https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=crop&w=500&q=80" alt="Матча">
+                <h3>Матча латте</h3>
+                <p>Молочный напиток с матчей.</p>
+                <b>280 сом</b>
+            </div>
+            <div class="product">
+                <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=500&q=80" alt="Холодный кофе">
+                <h3>Айс-кофе</h3>
+                <p>Холодный кофе со льдом.</p>
+                <b>260 сом</b>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. десерты -->
+    <section id="desserts">
+        <h2>Десерты</h2>
+        <div class="products">
+            <div class="product">
+                <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=500&q=80" alt="Круассан">
+                <h3>Круассан</h3>
+                <p>Свежая хрустящая выпечка.</p>
+                <b>220 сом</b>
+            </div>
+            <div class="product">
+                <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=500&q=80" alt="Чизкейк">
+                <h3>Чизкейк</h3>
+                <p>Нежный десерт с ягодами.</p>
+                <b>260 сом</b>
+            </div>
+            <div class="product">
+                <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=500&q=80" alt="Печенье">
+                <h3>Печенье</h3>
+                <p>Печенье с шоколадом.</p>
+                <b>160 сом</b>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Кофе -->
+    <section id="beans">
+        <h2>Кофейные зёрна</h2>
+        <p>В нашей кофейне можно купить зёрна для приготовления кофе дома.</p>
+        <p>Мы выбираем ароматные сорта и храним их в закрытых упаковках.</p>
+        <img style="width:100%; max-width:500px; border-radius:12px;"
+             src="https://images.unsplash.com/photo-1559525839-b184a4d698c7?auto=format&fit=crop&w=800&q=80"
+             alt="Кофейные зёрна">
+    </section>
+
+    <!-- 5. о кофейне -->
+    <section id="about">
+        <h2>О кофейне MOKO</h2>
+        <p>MOKO — уютное место для любителей кофе и сладостей.</p>
+        <p>К нам можно прийти с друзьями, поработать или просто отдохнуть.</p>
+    </section>
+
+    <!-- 6. доставка -->
+    <section id="delivery">
+        <h2>Доставка</h2>
+        <p>Можно забрать заказ самостоятельно. Возможность доставки уточняйте по телефону.</p>
+        <p>Мы готовим напитки перед выдачей, чтобы они были свежими.</p>
+    </section>
+
+    <!-- 7. бронирование -->
+    <section id="booking">
+        <h2>Забронировать столик</h2>
+        <p>Заполните форму для бронирования.</p>
+        <form onsubmit="event.preventDefault(); alert('Спасибо! Ваша заявка заполнена.');">
+            <input type="text" placeholder="Ваше имя" required><br>
+            <input type="tel" placeholder="Номер телефона" required><br>
+            <input type="date" required><br>
+            <select>
+                <option>1 гость</option>
+                <option>2 гостя</option>
+                <option>3 гостя</option>
+                <option>4 гостя</option>
+            </select><br>
+            <button type="submit">Отправить</button>
+        </form>
+    </section>
+
+    <!-- 8. акции -->
+    <section id="offers">
+        <h2>Акции</h2>
+        <p>Следите за сезонными напитками и новыми десертами.</p>
+        <p>Спросите у бариста, какие предложения доступны сегодня.</p>
+    </section>
+
+    <!-- 9. отзывы -->
+    <section id="reviews">
+        <h2>Отзывы гостей</h2>
+        <p>«Очень вкусный кофе и приятная атмосфера!» - Ульзана</p>
+        <p>«Люблю заходить сюда за латте и круассаном.» - Зика</p>
+        <p>«Хорошее место для встречи с друзьями.» - Ригина</p>
+    </section>
+
+    <!-- 10. наши контакты -->
+    <section id="contacts">
+        <h2>Контакты</h2>
+        <p>Адрес: Улица Ленина 55</p>
+        <p>Телефон: +996 (555) 555-555</p>
+        <p>Время работы: ежедневно с 08:00 до 21:00</p>
+    </section>
+
+    <footer>
+        <p>MOKO — кофе и десерты</p>
+    </footer>
+    <!-- 11 -->
+<section id="validation">
+    <h2>Проверка данных</h2>
+
+    <form onsubmit="event.preventDefault(); alert('Все данные введены правильно!');">
+
+        <label>ФИО:</label><br>
+        <input
+            type="text"
+            placeholder="Фамилия Имя Отчество"
+            pattern="[А-Яа-яЁё]+([ -][А-Яа-яЁё]+){1,2}"
+            title="Введите имя и фамилию или полное ФИО на русском языке"
+            required
+        ><br>
+
+        <label>Номер телефона:</label><br>
+        <input
+            type="tel"
+            placeholder="0555123456"
+            pattern="(\0|0)[0-9]{9}"
+        ><br>
+
+        <label>Почта:</label><br>
+        <input
+            type="email"
+            placeholder="email@gmail.com"
+            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+            title="Введите почту, например example@gmail.com"
+            required
+        ><br>
+
+        <button type="submit">Проверить данные</button>
+    </form>
+</section>
+</body>
+</html>
