@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -6,7 +7,6 @@
     <title>MOKO — кофейня</title>
 
     <style>
-        
         body {
             margin: 0;
             font-family: Arial, sans-serif;
@@ -14,6 +14,7 @@
             color: #252b25;
         }
 
+        /* Анимация логотипа */
         header {
             background-color: #f8f2e5;
             padding: 20px;
@@ -23,6 +24,18 @@
         header h1 {
             color: #55745d;
             margin: 0;
+            animation: logoAnimation 2s ease-in-out;
+        }
+
+        @keyframes logoAnimation {
+            0% {
+                opacity: 0;
+                transform: translateY(-40px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         nav {
@@ -33,10 +46,14 @@
             color: #252b25;
             text-decoration: none;
             margin: 8px;
+            transition: color 0.3s, transform 0.3s;
+            display: inline-block;
         }
 
+        /* Анимация меню при наведении */
         nav a:hover {
             color: #e9783e;
+            transform: translateY(-4px);
         }
 
         section {
@@ -75,13 +92,39 @@
             width: 250px;
         }
 
+        /* Анимация фотографий при наведении */
         .product img {
             width: 100%;
             height: 160px;
             object-fit: cover;
             border-radius: 10px;
+            transition: transform 0.4s, filter 0.4s;
         }
 
+        .product img:hover {
+            transform: scale(1.08);
+            filter: brightness(1.1);
+        }
+
+        .main img {
+            transition: transform 0.4s;
+        }
+
+        .main img:hover {
+            transform: scale(1.04);
+        }
+
+        /* Анимация карточек товаров */
+        .product {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Анимация кнопок */
         button {
             background-color: #e9783e;
             color: white;
@@ -89,6 +132,16 @@
             padding: 10px 15px;
             border-radius: 8px;
             cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background-color: #55745d;
+            transform: scale(1.08);
+        }
+
+        button:active {
+            transform: scale(0.95);
         }
 
         input, select {
@@ -104,7 +157,18 @@
             text-align: center;
         }
 
-        
+        /* Анимация появления разделов при прокрутке */
+        .animate-section {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .animate-section.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         @media (max-width: 600px) {
             .main {
                 display: block;
@@ -127,189 +191,236 @@
 </head>
 
 <body>
-    <!-- шапка сайта -->
-    <header>
-        <h1>MOKO </h1>
-        <p>Кофейня с вкусным кофе и десертами</p>
 
-        <nav>
-            <a href="#home">Главная</a>
-            <a href="#menu">Меню</a>
-            <a href="#desserts">Десерты</a>
-            <a href="#beans">Зёрна</a>
-            <a href="#about">О нас</a>
-            <a href="#delivery">Доставка</a>
-            <a href="#booking">Бронирование</a>
-            <a href="#offers">Акции</a>
-            <a href="#reviews">Отзывы</a>
-            <a href="#contacts">Контакты</a>
-        </nav>
-    </header>
+<!-- Шапка сайта -->
+<header>
+    <h1>MOKO</h1>
+    <p>Кофейня с вкусным кофе и десертами</p>
 
-    <!-- 1. главная -->
-    <section id="home">
-        <div class="main">
-            <div>
-                <h2>Кофе, который поднимает настроение</h2>
-                <p>У нас можно выпить ароматный кофе, попробовать свежую выпечку и отдохнуть.</p>
-                <a href="#menu"><button>Посмотреть меню</button></a>
-            </div>
-            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80"
-                 alt="Кофе на столе">
+    <nav>
+        <a href="#home">Главная</a>
+        <a href="#menu">Меню</a>
+        <a href="#desserts">Десерты</a>
+        <a href="#beans">Зёрна</a>
+        <a href="#about">О нас</a>
+        <a href="#delivery">Доставка</a>
+        <a href="#booking">Бронирование</a>
+        <a href="#offers">Акции</a>
+        <a href="#reviews">Отзывы</a>
+        <a href="#contacts">Контакты</a>
+    </nav>
+</header>
+
+<!-- 1. Главная -->
+<section id="home" class="animate-section">
+    <div class="main">
+        <div>
+            <h2>Кофе, который поднимает настроение</h2>
+            <p>У нас можно выпить ароматный кофе, попробовать свежую выпечку и отдохнуть.</p>
+            <a href="#menu"><button>Посмотреть меню</button></a>
         </div>
-    </section>
 
-    <!-- 2. меню -->
-    <section id="menu">
-        <h2>Наши напитки</h2>
-        <div class="products">
-            <div class="product">
-                <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=500&q=80" alt="Латте">
-                <h3>Латте</h3>
-                <p>Нежный кофе с молоком.</p>
-                <b>250 сом</b>
-            </div>
-            <div class="product">
-                <img src="https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=crop&w=500&q=80" alt="Матча">
-                <h3>Матча латте</h3>
-                <p>Молочный напиток с матчей.</p>
-                <b>280 сом</b>
-            </div>
-            <div class="product">
-                <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=500&q=80" alt="Холодный кофе">
-                <h3>Айс-кофе</h3>
-                <p>Холодный кофе со льдом.</p>
-                <b>260 сом</b>
-            </div>
+        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80"
+             alt="Кофе на столе">
+    </div>
+</section>
+
+<!-- 2. Меню -->
+<section id="menu" class="animate-section">
+    <h2>Наши напитки</h2>
+
+    <div class="products">
+
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=500&q=80" alt="Латте">
+            <h3>Латте</h3>
+            <p>Нежный кофе с молоком.</p>
+            <b>250 сом</b>
         </div>
-    </section>
 
-    <!-- 3. десерты -->
-    <section id="desserts">
-        <h2>Десерты</h2>
-        <div class="products">
-            <div class="product">
-                <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=500&q=80" alt="Круассан">
-                <h3>Круассан</h3>
-                <p>Свежая хрустящая выпечка.</p>
-                <b>220 сом</b>
-            </div>
-            <div class="product">
-                <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=500&q=80" alt="Чизкейк">
-                <h3>Чизкейк</h3>
-                <p>Нежный десерт с ягодами.</p>
-                <b>260 сом</b>
-            </div>
-            <div class="product">
-                <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=500&q=80" alt="Печенье">
-                <h3>Печенье</h3>
-                <p>Печенье с шоколадом.</p>
-                <b>160 сом</b>
-            </div>
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=crop&w=500&q=80" alt="Матча">
+            <h3>Матча латте</h3>
+            <p>Молочный напиток с матчей.</p>
+            <b>280 сом</b>
         </div>
-    </section>
 
-    <!-- 4. Кофе -->
-    <section id="beans">
-        <h2>Кофейные зёрна</h2>
-        <p>В нашей кофейне можно купить зёрна для приготовления кофе дома.</p>
-        <p>Мы выбираем ароматные сорта и храним их в закрытых упаковках.</p>
-        <img style="width:100%; max-width:500px; border-radius:12px;"
-             src="https://images.unsplash.com/photo-1559525839-b184a4d698c7?auto=format&fit=crop&w=800&q=80"
-             alt="Кофейные зёрна">
-    </section>
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=500&q=80" alt="Холодный кофе">
+            <h3>Айс-кофе</h3>
+            <p>Холодный кофе со льдом.</p>
+            <b>260 сом</b>
+        </div>
 
-    <!-- 5. о кофейне -->
-    <section id="about">
-        <h2>О кофейне MOKO</h2>
-        <p>MOKO — уютное место для любителей кофе и сладостей.</p>
-        <p>К нам можно прийти с друзьями, поработать или просто отдохнуть.</p>
-    </section>
+    </div>
+</section>
 
-    <!-- 6. доставка -->
-    <section id="delivery">
-        <h2>Доставка</h2>
-        <p>Можно забрать заказ самостоятельно. Возможность доставки уточняйте по телефону.</p>
-        <p>Мы готовим напитки перед выдачей, чтобы они были свежими.</p>
-    </section>
+<!-- 3. Десерты -->
+<section id="desserts" class="animate-section">
+    <h2>Десерты</h2>
 
-    <!-- 7. бронирование -->
-    <section id="booking">
-        <h2>Забронировать столик</h2>
-        <p>Заполните форму для бронирования.</p>
-        <form onsubmit="event.preventDefault(); alert('Спасибо! Ваша заявка заполнена.');">
-            <input type="text" placeholder="Ваше имя" required><br>
-            <input type="tel" placeholder="Номер телефона" required><br>
-            <input type="date" required><br>
-            <select>
-                <option>1 гость</option>
-                <option>2 гостя</option>
-                <option>3 гостя</option>
-                <option>4 гостя</option>
-            </select><br>
-            <button type="submit">Отправить</button>
-        </form>
-    </section>
+    <div class="products">
 
-    <!-- 8. акции -->
-    <section id="offers">
-        <h2>Акции</h2>
-        <p>Следите за сезонными напитками и новыми десертами.</p>
-        <p>Спросите у бариста, какие предложения доступны сегодня.</p>
-    </section>
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=500&q=80" alt="Круассан">
+            <h3>Круассан</h3>
+            <p>Свежая хрустящая выпечка.</p>
+            <b>220 сом</b>
+        </div>
 
-    <!-- 9. отзывы -->
-    <section id="reviews">
-        <h2>Отзывы гостей</h2>
-        <p>«Очень вкусный кофе и приятная атмосфера!» - Ульзана</p>
-        <p>«Люблю заходить сюда за латте и круассаном.» - Зика</p>
-        <p>«Хорошее место для встречи с друзьями.» - Ригина</p>
-    </section>
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=500&q=80" alt="Чизкейк">
+            <h3>Чизкейк</h3>
+            <p>Нежный десерт с ягодами.</p>
+            <b>260 сом</b>
+        </div>
 
-    <!-- 10. наши контакты -->
-    <section id="contacts">
-        <h2>Контакты</h2>
-        <p>Адрес: Улица Ленина 55</p>
-        <p>Телефон: +996 (555) 555-555</p>
-        <p>Время работы: ежедневно с 08:00 до 21:00</p>
-    </section>
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=500&q=80" alt="Печенье">
+            <h3>Печенье</h3>
+            <p>Печенье с шоколадом.</p>
+            <b>160 сом</b>
+        </div>
 
-    <footer>
-        <p>MOKO — кофе и десерты</p>
-    </footer>
-    <!-- 11 -->
-<section id="validation">
+    </div>
+</section>
+
+<!-- 4. Кофейные зёрна -->
+<section id="beans" class="animate-section">
+    <h2>Кофейные зёрна</h2>
+    <p>В нашей кофейне можно купить зёрна для приготовления кофе дома.</p>
+    <p>Мы выбираем ароматные сорта и храним их в закрытых упаковках.</p>
+
+    <img style="width:100%; max-width:500px; border-radius:12px;"
+         src="https://images.unsplash.com/photo-1559525839-b184a4d698c7?auto=format&fit=crop&w=800&q=80"
+         alt="Кофейные зёрна">
+</section>
+
+<!-- 5. О кофейне -->
+<section id="about" class="animate-section">
+    <h2>О кофейне MOKO</h2>
+    <p>MOKO — уютное место для любителей кофе и сладостей.</p>
+    <p>К нам можно прийти с друзьями, поработать или просто отдохнуть.</p>
+</section>
+
+<!-- 6. Доставка -->
+<section id="delivery" class="animate-section">
+    <h2>Доставка</h2>
+    <p>Можно забрать заказ самостоятельно. Возможность доставки уточняйте по телефону.</p>
+    <p>Мы готовим напитки перед выдачей, чтобы они были свежими.</p>
+</section>
+
+<!-- 7. Бронирование -->
+<section id="booking" class="animate-section">
+    <h2>Забронировать столик</h2>
+    <p>Заполните форму для бронирования.</p>
+
+    <form onsubmit="event.preventDefault(); alert('Спасибо! Ваша заявка заполнена.');">
+
+        <input type="text" placeholder="Ваше имя" required><br>
+
+        <input type="tel" placeholder="Номер телефона" required><br>
+
+        <input type="date" required><br>
+
+        <select>
+            <option>1 гость</option>
+            <option>2 гостя</option>
+            <option>3 гостя</option>
+            <option>4 гостя</option>
+        </select><br>
+
+        <button type="submit">Отправить</button>
+    </form>
+</section>
+
+<!-- 8. Акции -->
+<section id="offers" class="animate-section">
+    <h2>Акции</h2>
+    <p>Следите за сезонными напитками и новыми десертами.</p>
+    <p>Спросите у бариста, какие предложения доступны сегодня.</p>
+</section>
+
+<!-- 9. Отзывы -->
+<section id="reviews" class="animate-section">
+    <h2>Отзывы гостей</h2>
+    <p>«Очень вкусный кофе и приятная атмосфера!» - Ульзана</p>
+    <p>«Люблю заходить сюда за латте и круассаном.» - Зика</p>
+    <p>«Хорошее место для встречи с друзьями.» - Ригина</p>
+</section>
+
+<!-- 10. Контакты -->
+<section id="contacts" class="animate-section">
+    <h2>Контакты</h2>
+    <p>Адрес: Улица Ленина 55</p>
+    <p>Телефон: +996 (555) 555-555</p>
+    <p>Время работы: ежедневно с 08:00 до 21:00</p>
+</section>
+
+<!-- Подвал -->
+<footer>
+    <p>MOKO — кофе и десерты</p>
+</footer>
+
+<!-- 11. Проверка данных -->
+<section id="validation" class="animate-section">
     <h2>Проверка данных</h2>
 
     <form onsubmit="event.preventDefault(); alert('Все данные введены правильно!');">
 
         <label>ФИО:</label><br>
+
         <input
-            type="text"
-            placeholder="Фамилия Имя Отчество"
-            pattern="[А-Яа-яЁё]+([ -][А-Яа-яЁё]+){1,2}"
-            title="Введите имя и фамилию или полное ФИО на русском языке"
-            required
+                type="text"
+                placeholder="Фамилия Имя Отчество"
+                pattern="[А-Яа-яЁё]+([ -][А-Яа-яЁё]+){1,2}"
+                title="Введите имя и фамилию или полное ФИО на русском языке"
+                required
         ><br>
 
         <label>Номер телефона:</label><br>
+
         <input
-            type="tel"
-            placeholder="0555123456"
-            pattern="(\0|0)[0-9]{9}"
+                type="tel"
+                placeholder="0555123456"
+                pattern="0[0-9]{9}"
+                title="Введите номер из 10 цифр, начиная с 0"
+                required
         ><br>
 
         <label>Почта:</label><br>
+
         <input
-            type="email"
-            placeholder="email@gmail.com"
-            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
-            title="Введите почту, например example@gmail.com"
-            required
+                type="email"
+                placeholder="email@gmail.com"
+                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                title="Введите почту, например example@gmail.com"
+                required
         ><br>
 
         <button type="submit">Проверить данные</button>
+
     </form>
 </section>
+
+<!-- JavaScript: появление разделов при прокрутке -->
+<script>
+    const sections = document.querySelectorAll('.animate-section');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            }
+        });
+    }, {
+        threshold: 0.15
+    });
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+</script>
+
 </body>
 </html>
